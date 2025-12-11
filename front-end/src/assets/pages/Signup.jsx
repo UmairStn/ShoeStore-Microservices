@@ -36,7 +36,6 @@ function Signup() {
                 lastName: '',
                 email: ''
             });
-            // Redirect to login page after successful signup
             navigate('/login');
         } catch (error) {
             console.error('Full Error:', error);
@@ -51,104 +50,140 @@ function Signup() {
     };
 
     return (
-        <div className="container mx-auto p-4 max-w-md">
-            <h1 className="text-3xl font-bold underline mb-6 text-center">
-                Signup Page
-            </h1>
-            <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-                <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
-                        Username
-                    </label>
-                    <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="username"
-                        name="username"
-                        type="text"
-                        placeholder="Username"
-                        value={formData.username}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-                        Password
-                    </label>
-                    <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="password"
-                        name="password"
-                        type="password"
-                        placeholder="******************"
-                        value={formData.password}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="firstName">
-                        First Name
-                    </label>
-                    <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="firstName"
-                        name="firstName"
-                        type="text"
-                        placeholder="First Name"
-                        value={formData.firstName}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="lastName">
-                        Last Name
-                    </label>
-                    <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="lastName"
-                        name="lastName"
-                        type="text"
-                        placeholder="Last Name"
-                        value={formData.lastName}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <div className="mb-6">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-                        Email
-                    </label>
-                    <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="email"
-                        name="email"
-                        type="email"
-                        placeholder="Email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <div className="flex flex-col gap-3">
-                    <button
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
-                        type="submit"
-                    >
-                        Sign Up
-                    </button>
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4">
+            <div className="relative w-full max-w-md">
+                {/* Card */}
+                <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-8">
+                    {/* Logo/Brand */}
+                    <div className="text-center mb-8">
+                        <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-slate-900 mb-4 shadow-lg">
+                            <span className="text-3xl">🛍️</span>
+                        </div>
+                        <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                            Create Account
+                        </h1>
+                        <p className="text-gray-600">Join us today</p>
+                    </div>
+
+                    {/* Form */}
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                        <div className="grid grid-cols-2 gap-4">
+                            <div>
+                                <label className="block text-sm font-semibold text-gray-700 mb-2" htmlFor="firstName">
+                                    First Name
+                                </label>
+                                <input
+                                    className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition"
+                                    id="firstName"
+                                    name="firstName"
+                                    type="text"
+                                    placeholder="John"
+                                    value={formData.firstName}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                            
+                            <div>
+                                <label className="block text-sm font-semibold text-gray-700 mb-2" htmlFor="lastName">
+                                    Last Name
+                                </label>
+                                <input
+                                    className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition"
+                                    id="lastName"
+                                    name="lastName"
+                                    type="text"
+                                    placeholder="Doe"
+                                    value={formData.lastName}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                        </div>
+
+                        <div>
+                            <label className="block text-sm font-semibold text-gray-700 mb-2" htmlFor="username">
+                                Username
+                            </label>
+                            <input
+                                className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition"
+                                id="username"
+                                name="username"
+                                type="text"
+                                placeholder="Choose username"
+                                value={formData.username}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+
+                        <div>
+                            <label className="block text-sm font-semibold text-gray-700 mb-2" htmlFor="email">
+                                Email Address
+                            </label>
+                            <input
+                                className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition"
+                                id="email"
+                                name="email"
+                                type="email"
+                                placeholder="you@example.com"
+                                value={formData.email}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+
+                        <div>
+                            <label className="block text-sm font-semibold text-gray-700 mb-2" htmlFor="password">
+                                Password
+                            </label>
+                            <input
+                                className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition"
+                                id="password"
+                                name="password"
+                                type="password"
+                                placeholder="Create password"
+                                value={formData.password}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+
+                        <button
+                            className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-lg shadow-lg transform transition hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2 mt-6"
+                            type="submit"
+                        >
+                            Create Account
+                        </button>
+                    </form>
+
+                    {/* Divider */}
+                    <div className="relative my-6">
+                        <div className="absolute inset-0 flex items-center">
+                            <div className="w-full border-t border-gray-300"></div>
+                        </div>
+                        <div className="relative flex justify-center text-sm">
+                            <span className="px-2 bg-white text-gray-600">Already have an account?</span>
+                        </div>
+                    </div>
+
+                    {/* Sign In Link */}
                     <button
                         type="button"
                         onClick={() => navigate('/login')}
-                        className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
+                        className="w-full bg-white hover:bg-gray-50 text-gray-900 font-semibold py-3 rounded-lg border-2 border-gray-300 transition focus:outline-none focus:ring-2 focus:ring-slate-900"
                     >
-                        Already have an account? Login
+                        Sign In Instead
                     </button>
                 </div>
-            </form>
+
+                {/* Footer */}
+                <p className="text-center text-gray-600 text-sm mt-6">
+                    © 2025 Shoe Store. All rights reserved.
+                </p>
+            </div>
         </div>
-    )
+    );
 }
 
-export default Signup
+export default Signup;

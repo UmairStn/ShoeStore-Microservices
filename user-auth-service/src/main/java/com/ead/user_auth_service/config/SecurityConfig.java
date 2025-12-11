@@ -1,8 +1,8 @@
-package com.ead.user_auth_service.config; // Check this package matches your folder name exactly
+package com.ead.user_auth_service.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity; // <-- THIS LINE WAS THE PROBLEM
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -22,6 +22,7 @@ public class SecurityConfig {
                 // 3. Define URL permissions
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/auth/**").permitAll() // Allow Login/Register without token
+                        .requestMatchers("/api/users/**").permitAll() // Allow user endpoints for admin
                         .anyRequest().authenticated()
                 );
 
@@ -35,7 +36,7 @@ public class SecurityConfig {
         // ALLOW YOUR REACT PORTS HERE
         config.setAllowedOrigins(List.of("http://localhost:5173", "http://localhost:3000"));
 
-        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(Boolean.TRUE);
 

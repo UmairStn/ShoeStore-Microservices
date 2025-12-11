@@ -6,6 +6,7 @@ import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -14,7 +15,7 @@ public class UserService {
     private UserRepository userRepository;
 
     public User createUser(User user) {
-        //check if username or email already exists
+        // Check if username or email already exists
         if(userRepository.findByUsername(user.getUsername()).isPresent()){
             throw new RuntimeException("Username already exists");
         }
@@ -47,5 +48,35 @@ public class UserService {
             return userRepository.save(updatedUser);
         }
         return null;
+    }
+
+    // Get all users
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
+
+    // Get user by ID
+    public Optional<User> getUserById(Integer id) {
+        return userRepository.findById(id);
+    }
+
+    // Get user by username
+    public Optional<User> getUserByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
+
+    // Delete user
+    public void deleteUser(Integer id) {
+        userRepository.deleteById(id);
+    }
+
+    // Check if username exists
+    public boolean existsByUsername(String username) {
+        return userRepository.findByUsername(username).isPresent();
+    }
+
+    // Check if email exists
+    public boolean existsByEmail(String email) {
+        return userRepository.findByEmail(email).isPresent();
     }
 }
