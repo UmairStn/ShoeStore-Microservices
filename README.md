@@ -16,7 +16,7 @@ This project follows a **Microservices Architecture** pattern, consisting of a F
 ### 🎨 Frontend
 
 - **Folder:** `front-end`
-- **Technology Stack:** React 19, Vite, Tailwind CSS, Axios.
+- **Technology Stack:** React, Vite, Tailwind CSS, Axios.
 - **Role:** Serves as the user interface for browsing products, placing orders, and handling user authentication.
 
 
