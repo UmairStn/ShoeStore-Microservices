@@ -85,7 +85,7 @@ function Login() {
     };
     
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100">
+        <div className="min-h-screen flex items-center justify-center bg-linier-to-br from-gray-50 to-gray-100">
             <div className="relative w-full max-w-md px-6">
                 {/* Card */}
                 <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-8">

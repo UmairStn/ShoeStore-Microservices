@@ -147,7 +147,7 @@ const ProductPage = () => {
                 {/* Welcome Banner */}
                 <div className="bg-slate-900 rounded-2xl shadow-xl p-8 mb-12 text-white">
                     <h2 className="text-4xl md:text-5xl font-bold mb-3">
-                        Welcome back, {user?.firstName}! 👋
+                        Welcome back, {user?.firstName}!
                     </h2>
                     <p className="text-lg md:text-xl text-gray-300">
                         Discover premium footwear designed for comfort and style

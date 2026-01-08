@@ -320,7 +320,9 @@ const OrdersAdmin = () => {
                                                 <p className="font-semibold text-gray-900">{order.quantity}</p>
                                             </td>
                                             <td className="px-6 py-4">
-                                                <p className="font-bold text-gray-900">${order.price}</p>
+                                                <p className="font-bold text-gray-900">
+                                                    ${(order.price || 0).toFixed(2)}
+                                                </p>
                                             </td>
                                             <td className="px-6 py-4">
                                                 <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${getStatusColor(order.status)}`}>
